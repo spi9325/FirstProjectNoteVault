@@ -17,7 +17,7 @@ export default function SignIn() {
     const [result,setResult] = useState(false);
     const [processing,setProcessing] = useState(false);
 
-
+    console.log(process.env.NEXT_PUBLIC_Backend_URL)
     const handelSignIn = useCallback(async () => {
         if (!emailRef.current?.value && !passwordRef.current?.value) {
             alert("email and password is reqiure")
