@@ -79,9 +79,9 @@ export function ChatBar() {
                         }
                     </div>
             </div>
-            <div className="text-2xl flex justify-center text-black bg-green-500 rounded-full py-3 mb-3">
+            <Link href={"/login/logout"} className="text-2xl flex justify-center text-black bg-green-500 rounded-full py-3 mb-3">
             <CiLogout/>
-            </div>
+            </Link>
         </div>
     )
 }

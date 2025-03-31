@@ -93,7 +93,7 @@ export default function SignIn() {
                     <label className="block font-semibold">Email :</label>
                     <input id="email" ref={emailRef} autoComplete="off" className="p-1 rounded mb-2 pl-2 text-black" type="text" />
                     <label className="block font-semibold" >Password :</label>
-                    <input id="password" ref={passwordRef} autoComplete="off" className="p-1 rounded pl-2 text-black" type="text" />
+                    <input id="password" ref={passwordRef} autoComplete="off" className="p-1 rounded pl-2 text-black" type="password" />
 
 
                     <div className={`text-center mt-4`}>
