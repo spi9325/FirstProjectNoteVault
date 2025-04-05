@@ -106,7 +106,7 @@ loginRoute.post("/signin",async(req:Request,res:Response)=>{
     }
 });
 
-loginRoute.get("/authorized",(req:Request,res:Response)=>{
+loginRoute.get("/authorized",tokenMiddleware,(req:Request,res:Response)=>{
     const token = req.cookies.token;
    try {
      const authorized = jwt.verify(token,jwtSecret);
