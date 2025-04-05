@@ -26,8 +26,8 @@ async function joinRooms(roomName:string){
             withCredentials:true
         }
     )
-   if(join.status == 200){
-    toast.success("you Joined"+roomName)
+   if(join.status == 201){
+    toast.success("you Joined "+roomName)
    }
 }
 export function CreateRoom(){

@@ -53,7 +53,7 @@ export default function SignIn() {
             }
 
         } catch (error:any) {
-            
+            setProcessing(false);
             const errors = error.response?.data?.error?.issues?.map((cur: any) => 
                 cur.message
               );

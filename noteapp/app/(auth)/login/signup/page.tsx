@@ -54,6 +54,7 @@ export default function Signup() {
                 router.push("/login/signin");
             }
         } catch (error:any) {
+            setProcessing(false);
            const errors= error.response.data.error.issues?.map((cur:any)=>{
                 return cur.message ;
             })

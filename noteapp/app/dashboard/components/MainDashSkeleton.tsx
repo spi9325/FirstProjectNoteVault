@@ -1,5 +1,5 @@
 export function MainDashSkeleton() {
-
+    console.log("main dash sckeleton")
     return (
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[...Array(6)].map((_, index) => (
