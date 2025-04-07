@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken"
 const jwtSecret: string = process.env.JWT_SECRET as string;
 import bcrypt from "bcrypt"
 import { tokenMiddleware } from "../middlewares/tokenMiddeleware";
-import { authorized } from "../middlewares/authorized";
 export const loginRoute = router();
 const client = new PrismaClient();
 
@@ -107,16 +106,20 @@ loginRoute.post("/signin",async(req:Request,res:Response)=>{
     }
 });
 
-loginRoute.get("/authorized",authorized,(req:Request,res:Response)=>{
+loginRoute.get("/authorized",async(req:Request,res:Response)=>{
     const token = req.cookies.token;
+
    try {
      const authorized = jwt.verify(token,jwtSecret);
      if(authorized){
          res.send(true)
+     }else{
+        res.send(false)
      }
    } catch (error) {
     res.send(false)
    }
+   await client.user.findFirst({});
 });
 
 loginRoute.get("/getuser",tokenMiddleware,(req:Request,res:Response)=>{
