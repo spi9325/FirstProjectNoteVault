@@ -108,7 +108,7 @@ loginRoute.post("/signin",async(req:Request,res:Response)=>{
 
 loginRoute.get("/authorized",async(req:Request,res:Response)=>{
     const token = req.cookies.token;
-
+    const ress = await client.user.findFirst({})
    try {
      const authorized = jwt.verify(token,jwtSecret);
      if(authorized){
@@ -119,7 +119,7 @@ loginRoute.get("/authorized",async(req:Request,res:Response)=>{
    } catch (error) {
     res.send(false)
    }
-   await client.user.findFirst({});
+   
 });
 
 loginRoute.get("/getuser",tokenMiddleware,(req:Request,res:Response)=>{
