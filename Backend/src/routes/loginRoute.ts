@@ -108,7 +108,14 @@ loginRoute.post("/signin",async(req:Request,res:Response)=>{
 
 loginRoute.get("/authorized",async(req:Request,res:Response)=>{
     const token = req.cookies.token;
-    const ress = await client.user.findFirst({})
+    const ress = await client.user.findFirst({
+        where: {
+            email: 'spi24@gmail.com',
+          },
+          select: {
+            email: true,
+          },
+    })
    try {
      const authorized = jwt.verify(token,jwtSecret);
      if(authorized){
