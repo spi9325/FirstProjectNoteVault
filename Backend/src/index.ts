@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser"
 import * as dotenv from 'dotenv';
 import { notesRoute } from "./routes/notesRoute";
 import { roomRoutes } from "./routes/roomRoute";
+import job from "./config/cron";
 dotenv.config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors({
   credentials: true
 }))
 
+if(process.env.NODE_ENV == "production") job.start();
 app.use("/user",loginRoute)
 app.use("/notes",notesRoute)
 app.use("/room",roomRoutes)

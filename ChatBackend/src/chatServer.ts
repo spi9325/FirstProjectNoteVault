@@ -1,5 +1,6 @@
 import WebSocket, { WebSocketServer } from "ws";
 import dotenv from "dotenv";
+import job from "./config/cron";
 
 dotenv.config();
 interface User{
@@ -9,7 +10,7 @@ interface User{
 
 const wss = new WebSocketServer({ port: Number(process.env.PORT) });    
 const allSockets:User[] = [];
-
+if(process.env.NODE_ENV == "production") job.start();
 wss.on("connection", (socket) => {
 try {
     socket.on("message", async(message) => {
