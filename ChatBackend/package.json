@@ -1,0 +1,21 @@
+{
+  "name": "chatbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": " npm install && npx tsc -b",
+    "start": "node dist/chatServer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/ws": "^8.18.0",
+    "cron": "^4.3.1",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.8.2",
+    "ws": "^8.18.1"
+  }
+}
