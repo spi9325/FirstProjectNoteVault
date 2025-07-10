@@ -10,4 +10,5 @@ const job = new CronJob("*/14 * * * *",function (){
         .on("error",(e)=> console.error("Error while sending request",e))
 });
 
+
 export default job;
